@@ -1,0 +1,2154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Ms. Joan!</title>
+
+    <!-- Editorial Fonts: Cormorant Garamond, Caveat, and Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Theme Tokens & Lively Scrapbook Keyframes -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        hand: ['"Caveat"', 'cursive'],
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                    colors: {
+                        linen: '#F8F4EC',
+                        cardpaper: '#FFFDF8',
+                        ink: '#222E26',
+                        muted: '#57655C',
+                        sage: {
+                            50: '#F2F7F4',
+                            100: '#E1ECE5',
+                            200: '#C2D8CA',
+                            500: '#597C68',
+                            600: '#456452',
+                            700: '#354E40',
+                        },
+                        terracotta: {
+                            50: '#FDF3EF',
+                            100: '#F9E1D7',
+                            500: '#C86D51',
+                            600: '#AD573D',
+                        },
+                        honey: {
+                            50: '#FDF8EA',
+                            100: '#F9EECA',
+                            500: '#C5963E',
+                            600: '#A37726',
+                        },
+                        skywash: {
+                            50: '#F1F7FA',
+                            100: '#DFEEF5',
+                            500: '#5C859C',
+                        }
+                    },
+                    keyframes: {
+                        flameFlicker: {
+                            '0%, 100%': { transform: 'scale(1) rotate(-2deg)', opacity: '1' },
+                            '25%': { transform: 'scale(1.06, 0.95) rotate(2.5deg)', opacity: '0.96' },
+                            '50%': { transform: 'scale(0.95, 1.08) rotate(-3deg)', opacity: '1' },
+                            '75%': { transform: 'scale(1.04, 0.98) rotate(1.5deg)', opacity: '0.95' },
+                        },
+                        haloPulse: {
+                            '0%, 100%': { transform: 'scale(1)', opacity: '0.52' },
+                            '50%': { transform: 'scale(1.12)', opacity: '0.92' },
+                        },
+                        gentleFloat: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-6px)' },
+                        },
+                        softSwirl: {
+                            '0%, 100%': { transform: 'rotate(-1.1deg) translateY(0px)' },
+                            '50%': { transform: 'rotate(1.1deg) translateY(-5px)' },
+                        },
+                        smokeRise: {
+                            '0%': { transform: 'translate(-50%, 0) scale(0.45)', opacity: '0.85' },
+                            '60%': { transform: 'translate(-35%, -34px) scale(1.05)', opacity: '0.45' },
+                            '100%': { transform: 'translate(-60%, -64px) scale(1.45)', opacity: '0' },
+                        },
+                        confettiFall: {
+                            '0%': { transform: 'translate3d(0, -16px, 0) rotate(0deg)', opacity: '1' },
+                            '85%': { opacity: '1' },
+                            '100%': { transform: 'translate3d(var(--drift-x, 24px), 102vh, 0) rotate(var(--spin-deg, 540deg))', opacity: '0' },
+                        },
+                        polaroidSwap: {
+                            '0%': { opacity: '0', transform: 'translateY(10px) scale(0.97) rotate(-1.5deg)' },
+                            '65%': { opacity: '1', transform: 'translateY(-2px) scale(1.01) rotate(0.4deg)' },
+                            '100%': { opacity: '1', transform: 'translateY(0) scale(1) rotate(0deg)' },
+                        },
+                        cardPopIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.94) translateY(12px)' },
+                            '100%': { opacity: '1', transform: 'scale(1) translateY(0)' },
+                        },
+                        shakeLock: {
+                            '0%, 100%': { transform: 'translateX(0)' },
+                            '20%': { transform: 'translateX(-7px) rotate(-1deg)' },
+                            '40%': { transform: 'translateX(7px) rotate(1deg)' },
+                            '60%': { transform: 'translateX(-5px)' },
+                            '80%': { transform: 'translateX(5px)' },
+                        },
+                        toastSlide: {
+                            '0%': { opacity: '0', transform: 'translate(-50%, -14px) scale(0.96)' },
+                            '15%': { opacity: '1', transform: 'translate(-50%, 0) scale(1)' },
+                            '85%': { opacity: '1', transform: 'translate(-50%, 0) scale(1)' },
+                            '100%': { opacity: '0', transform: 'translate(-50%, -10px) scale(0.98)' },
+                        },
+                        eqBounce: {
+                            '0%, 100%': { transform: 'scaleY(0.35)' },
+                            '50%': { transform: 'scaleY(1)' },
+                        }
+                    },
+                    animation: {
+                        flameFlicker: 'flameFlicker 1.15s ease-in-out infinite',
+                        haloPulse: 'haloPulse 3.2s ease-in-out infinite',
+                        gentleFloat: 'gentleFloat 4.4s ease-in-out infinite',
+                        softSwirl: 'softSwirl 5.2s ease-in-out infinite',
+                        smokeRise: 'smokeRise 1.25s ease-out forwards',
+                        confettiFall: 'confettiFall var(--fall-duration, 3.2s) cubic-bezier(0.22, 0.72, 0.36, 1) forwards',
+                        polaroidSwap: 'polaroidSwap 0.45s cubic-bezier(0.22, 1.28, 0.36, 1) both',
+                        cardPopIn: 'cardPopIn 0.35s cubic-bezier(0.22, 1.2, 0.36, 1) both',
+                        shakeLock: 'shakeLock 0.4s ease-in-out',
+                        toastSlide: 'toastSlide 2.6s ease-in-out forwards',
+                        eqBounce: 'eqBounce 0.85s ease-in-out infinite',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Scrapbook Paper Texture, Washi Tape & Scroll Reveal Styles -->
+    <style>
+        body {
+            background-color: #F8F4EC;
+            background-image:
+                radial-gradient(circle at 12% 10%, rgba(200, 109, 81, 0.08), transparent 36%),
+                radial-gradient(circle at 88% 18%, rgba(89, 124, 104, 0.09), transparent 40%),
+                radial-gradient(rgba(87, 101, 92, 0.14) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 24px 24px;
+            color: #222E26;
+            overflow-x: hidden;
+        }
+
+        .washi-tape {
+            position: absolute;
+            box-shadow: 0 2px 6px rgba(34, 46, 38, 0.12);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .washi-sage {
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(89, 124, 104, 0.68),
+                rgba(89, 124, 104, 0.68) 6px,
+                rgba(225, 236, 229, 0.85) 6px,
+                rgba(225, 236, 229, 0.85) 12px
+            );
+        }
+
+        .washi-terracotta {
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(200, 109, 81, 0.68),
+                rgba(200, 109, 81, 0.68) 6px,
+                rgba(249, 225, 215, 0.85) 6px,
+                rgba(249, 225, 215, 0.85) 12px
+            );
+        }
+
+        .washi-gold {
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(197, 150, 62, 0.68),
+                rgba(197, 150, 62, 0.68) 6px,
+                rgba(249, 238, 202, 0.85) 6px,
+                rgba(249, 238, 202, 0.85) 12px
+            );
+        }
+
+        .washi-sky {
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(92, 133, 156, 0.65),
+                rgba(92, 133, 156, 0.65) 6px,
+                rgba(223, 238, 245, 0.85) 6px,
+                rgba(223, 238, 245, 0.85) 12px
+            );
+        }
+
+        .polaroid-card {
+            background: #FFFDF8;
+            box-shadow:
+                0 14px 32px -10px rgba(34, 46, 38, 0.16),
+                0 2px 6px rgba(34, 46, 38, 0.06);
+        }
+
+        .sticky-note {
+            box-shadow:
+                0 10px 24px -8px rgba(34, 46, 38, 0.15),
+                0 2px 4px rgba(34, 46, 38, 0.05);
+        }
+
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(22px) scale(0.985);
+            transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.65s cubic-bezier(0.22, 1.15, 0.36, 1);
+        }
+
+        .reveal-item.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .reveal-item {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased selection:bg-terracotta-100 selection:text-ink">
+
+    <!-- Confetti Burst Container -->
+    <div id="confetti-layer" aria-hidden="true" class="fixed inset-0 pointer-events-none z-50 overflow-hidden"></div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-layer" aria-live="polite" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none"></div>
+
+    <!-- Clean Minimal Background Audio Controls (Play/Pause + Mute/Unmute Only) -->
+    <div id="audio-control-bar"
+         class="fixed top-4 right-4 z-40 flex items-center gap-1.5 bg-cardpaper/95 backdrop-blur-md border border-sage-600/20 rounded-full px-2.5 py-1.5 shadow-md">
+        <span id="eq-bars" aria-hidden="true" class="flex items-end gap-[2.5px] h-4 px-1">
+            <span class="eq-bar w-[3px] h-full bg-terracotta-500 rounded-full origin-bottom scale-y-35 transition-transform"></span>
+            <span class="eq-bar w-[3px] h-full bg-sage-600 rounded-full origin-bottom scale-y-75 transition-transform"></span>
+            <span class="eq-bar w-[3px] h-full bg-honey-500 rounded-full origin-bottom scale-y-50 transition-transform"></span>
+        </span>
+
+        <button id="play-pause-btn"
+                type="button"
+                aria-label="Play background music"
+                class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-sage-600 text-white hover:bg-sage-700 active:scale-95 transition cursor-pointer">
+            <span id="play-pause-icon" aria-hidden="true">▶</span>
+            <span id="play-pause-label">Play</span>
+        </button>
+
+        <button id="mute-unmute-btn"
+                type="button"
+                aria-label="Mute background music"
+                class="flex items-center justify-center w-8 h-8 rounded-full text-sm text-ink bg-linen hover:bg-sage-100 border border-sage-600/15 active:scale-95 transition cursor-pointer">
+            <span id="mute-unmute-icon" aria-hidden="true">🔊</span>
+        </button>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- 1. INTRO & WISH / CANDLE RITUAL (#intro-overlay)                      -->
+    <!-- ===================================================================== -->
+    <section id="intro-overlay"
+             aria-labelledby="intro-heading"
+             class="min-h-screen flex items-center justify-center px-4 py-14 sm:py-20">
+        <div class="relative w-full max-w-xl bg-cardpaper border border-sage-600/20 rounded-[2rem] p-6 sm:p-10 shadow-xl text-center animate-cardPopIn">
+            <!-- Washi Tape Accents -->
+            <span aria-hidden="true" class="washi-tape washi-terracotta w-24 h-6 rounded-sm -rotate-3 -top-3 left-7"></span>
+            <span aria-hidden="true" class="washi-tape washi-sage w-24 h-6 rounded-sm rotate-3 -top-3 right-7"></span>
+
+            <!-- Eyebrow Tag -->
+            <p class="font-hand text-2xl sm:text-3xl text-terracotta-600 animate-gentleFloat">
+                A Birthday Keepsake For You
+            </p>
+
+            <!-- Circular Intro Photo Frame (#intro-photo-frame) with Animated Halo Ring -->
+            <div class="mt-4 mb-5 flex justify-center">
+                <div class="relative w-32 h-32 sm:w-36 sm:h-36 flex items-center justify-center">
+                    <span id="intro-portrait-halo"
+                          aria-hidden="true"
+                          class="absolute inset-0 rounded-full border-2 border-honey-500/55 bg-honey-100/45 animate-haloPulse pointer-events-none"></span>
+                    <span aria-hidden="true"
+                          class="absolute -inset-2 rounded-full border border-dashed border-sage-600/35 pointer-events-none"></span>
+
+                    <!-- Circular Intro Portrait Frame (Zero Upload/Picker Controls) -->
+                    <div id="intro-photo-frame"
+                         class="relative w-full h-full rounded-full overflow-hidden border-4 border-cardpaper ring-2 ring-sage-600/25 shadow-lg bg-sage-50 animate-softSwirl">
+                        <img id="intro-photo-img"
+                             src=""
+                             alt="Ms. Joan Birthday Portrait"
+                             class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <h1 id="intro-heading" class="font-display text-3xl sm:text-5xl font-bold text-ink tracking-tight leading-tight">
+                Happy Birthday, Ms. Joan!
+            </h1>
+            <p class="mt-2 text-sm sm:text-base text-muted max-w-md mx-auto">
+                Make a wish and blow out your candle to open your birthday keepsake.
+            </p>
+
+            <!-- Illustrated Birthday Cake & Flickering Candle -->
+            <div class="mt-6 flex flex-col items-center justify-center">
+                <div id="cake-trigger"
+                     role="button"
+                     tabindex="0"
+                     aria-label="Blow out birthday candle"
+                     class="relative select-none cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta-500 rounded-2xl p-2 transition-transform hover:scale-[1.03] active:scale-95">
+
+                    <!-- Rising Smoke Puffs Container -->
+                    <div id="candle-smoke-layer"
+                         aria-hidden="true"
+                         class="absolute left-1/2 -top-3 w-12 h-16 pointer-events-none z-20"></div>
+
+                    <svg viewBox="0 0 220 155" class="w-48 sm:w-56 h-auto mx-auto overflow-visible" aria-hidden="true">
+                        <!-- Soft Shadow -->
+                        <ellipse cx="110" cy="143" rx="78" ry="8" fill="#222E26" fill-opacity="0.12" />
+
+                        <!-- Cake Plate -->
+                        <rect x="24" y="130" width="172" height="10" rx="5" fill="#E1ECE5" stroke="#456452" stroke-width="2" />
+
+                        <!-- Cake Base Tier -->
+                        <rect x="38" y="84" width="144" height="46" rx="14" fill="#F9E1D7" stroke="#C86D51" stroke-width="2" />
+                        <path d="M38 94 Q56 108 74 94 T110 94 T146 94 T182 94 L182 84 Q182 76 174 76 L46 76 Q38 76 38 84 Z"
+                              fill="#FFFDF8" stroke="#C86D51" stroke-width="1.8" />
+
+                        <!-- Cake Top Tier -->
+                        <rect x="58" y="54" width="104" height="28" rx="10" fill="#E1ECE5" stroke="#456452" stroke-width="2" />
+                        <path d="M58 62 Q74 72 90 62 T122 62 T162 62 L162 54 Q162 48 156 48 L64 48 Q58 48 58 54 Z"
+                              fill="#FFFDF8" stroke="#456452" stroke-width="1.6" />
+
+                        <!-- Sprinkles -->
+                        <circle cx="68" cy="108" r="3" fill="#C86D51" />
+                        <circle cx="96" cy="114" r="3" fill="#C5963E" />
+                        <circle cx="126" cy="107" r="3" fill="#456452" />
+                        <circle cx="152" cy="115" r="3" fill="#C86D51" />
+
+                        <!-- Candle Stick -->
+                        <rect x="104" y="24" width="12" height="26" rx="4" fill="#C5963E" stroke="#8C641B" stroke-width="1.8" />
+                        <line x1="105" y1="31" x2="115" y2="35" stroke="#FFFDF8" stroke-width="2" />
+                        <line x1="105" y1="39" x2="115" y2="43" stroke="#FFFDF8" stroke-width="2" />
+
+                        <!-- Flickering Flame Group -->
+                        <g id="candle-flame-group" class="origin-[110px_22px] animate-flameFlicker">
+                            <circle cx="110" cy="12" r="14" fill="#F59E0B" fill-opacity="0.22" />
+                            <path d="M110 1 C117 9 119 16 114 21 C111 23 108 23 106 21 C101 16 103 9 110 1 Z"
+                                  fill="#F97316" />
+                            <path d="M110 8 C113.5 13 114 17 111.5 20 C110 21 109 21 108.2 20 C106.2 17 107 13 110 8 Z"
+                                  fill="#FDE047" />
+                        </g>
+                    </svg>
+                </div>
+
+                <span id="candle-status-badge"
+                      class="mt-1 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-honey-50 text-honey-600 border border-honey-500/25">
+                    <span>✨</span>
+                    <span>Make a Wish &amp; Blow Out Candle</span>
+                </span>
+            </div>
+
+            <!-- Rotating Birthday Wish Box -->
+            <div class="mt-5 bg-linen/90 border border-sage-600/15 rounded-2xl p-4 sm:p-5 text-left">
+                <div class="flex items-center justify-between gap-2 mb-1.5">
+                    <span class="text-[11px] font-bold uppercase tracking-widest text-sage-600">
+                        Birthday Wish For Ms. Joan
+                    </span>
+                    <button id="new-wish-btn"
+                            type="button"
+                            class="text-xs font-semibold px-3 py-1 rounded-full bg-cardpaper hover:bg-sage-100 text-ink border border-sage-600/20 active:scale-95 transition cursor-pointer">
+                        New Wish
+                    </button>
+                </div>
+                <p id="wish-display-text"
+                   class="font-display italic text-xl sm:text-2xl text-ink leading-snug transition-opacity duration-200">
+                    "May your year ahead overflow with good health, calm mornings, answered prayers, and joy that stays."
+                </p>
+            </div>
+
+            <!-- Blow Out Candle Primary Action Button -->
+            <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <button id="blow-out-candle-btn"
+                        type="button"
+                        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-terracotta-500 hover:bg-terracotta-600 text-white font-semibold text-sm sm:text-base shadow-lg shadow-terracotta-500/25 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition cursor-pointer">
+                    <span aria-hidden="true">🌬️</span>
+                    <span>Blow Out Candle</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 2. CELEBRATION PAGE (#celebration-page)                               -->
+    <!-- ===================================================================== -->
+    <main id="celebration-page" class="hidden max-w-4xl mx-auto px-4 sm:px-6 pt-10 sm:pt-14 pb-20">
+
+        <!-- Scrapbook Masthead Header -->
+        <header class="reveal-item relative bg-cardpaper border border-sage-600/20 rounded-[2rem] p-6 sm:p-10 mb-12 shadow-md text-center">
+            <span aria-hidden="true" class="washi-tape washi-sage w-24 h-6 rounded-sm -rotate-2 -top-3 left-8"></span>
+            <span aria-hidden="true" class="washi-tape washi-gold w-24 h-6 rounded-sm rotate-2 -top-3 right-8"></span>
+
+            <p class="font-hand text-2xl sm:text-3xl text-terracotta-600 animate-gentleFloat">
+              A Friend • A Guide • Someone to Look Up To
+            </p>
+            <h2 class="font-display text-4xl sm:text-6xl font-bold text-ink tracking-tight mt-1">
+                Happy Birthday, Ms. Joan!
+            </h2>
+            <p class="mt-3 text-sm sm:text-base text-muted max-w-xl mx-auto leading-relaxed">
+                A warm scrapbook of favorite moments, sweet smiles, secret laughs, and gratitude for someone truly special.
+            </p>
+        </header>
+
+        <!-- ================================================================= -->
+        <!-- 3A. POLAROID LOOKBOOK KEEPSAKE SNAPSHOTS (WITH, WITH1, WITH2, WITH3)-->
+        <!-- ================================================================= -->
+        <section aria-labelledby="polaroid-gallery-title" class="reveal-item mb-14">
+            <div class="relative bg-cardpaper border border-sage-600/20 rounded-[2rem] p-5 sm:p-8 shadow-md">
+                <span aria-hidden="true" class="washi-tape washi-terracotta w-24 h-6 rounded-sm rotate-[-3deg] -top-3 left-8"></span>
+
+                <div class="flex flex-wrap items-end justify-between gap-3 mb-6">
+                    <div>
+                        <span class="font-hand text-2xl sm:text-3xl text-sage-700 block leading-none">
+                            Polaroid Lookbook
+                        </span>
+                        <h3 id="polaroid-gallery-title" class="font-display text-2xl sm:text-4xl font-bold text-ink mt-1">
+                            Keepsake Snapshots
+                        </h3>
+                    </div>
+
+                    <div class="flex items-center gap-2.5">
+                        <span id="polaroid-counter"
+                              class="font-sans text-xs font-bold tracking-wider uppercase px-3 py-1.5 rounded-full bg-sage-50 text-sage-700 border border-sage-600/20">
+                            01 / 04
+                        </span>
+                        <button id="open-lightbox-btn"
+                                type="button"
+                                class="text-xs font-semibold px-3.5 py-1.5 rounded-full bg-linen hover:bg-sage-100 text-ink border border-sage-600/20 active:scale-95 transition cursor-pointer">
+                            Expand View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interactive Polaroid Stage (Touch Swipe Enabled) -->
+                <div class="flex items-center justify-center gap-2 sm:gap-5">
+                    <button id="prev-polaroid-btn"
+                            type="button"
+                            aria-label="Previous Polaroid photo"
+                            class="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-cardpaper hover:bg-sage-50 border border-sage-600/25 text-ink font-bold shadow-sm hover:-translate-x-0.5 active:scale-95 transition flex items-center justify-center cursor-pointer">
+                        ←
+                    </button>
+
+                    <div id="polaroid-stage" class="w-full max-w-md animate-softSwirl">
+                        <article class="polaroid-card relative rounded-2xl p-3.5 sm:p-4 pb-6 border border-sage-600/15 transition-all duration-300">
+                            <span aria-hidden="true" class="washi-tape washi-gold w-20 h-5 rounded-sm rotate-[4deg] -top-2.5 right-6"></span>
+
+                            <div id="polaroid-image-wrap"
+                                 role="button"
+                                 tabindex="0"
+                                 aria-label="Open current Polaroid in full-screen lightbox"
+                                 class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-linen cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta-500">
+                                <div id="polaroid-image-box" class="w-full h-full transition-transform duration-500 group-hover:scale-[1.03]"></div>
+                            </div>
+
+                            <!-- Full-width stacked text layout so caption and note fill 100% of card width -->
+                            <div class="mt-4 px-1 w-full">
+                                <div class="flex items-center justify-between gap-2 mb-1">
+                                    <span id="polaroid-badge"
+                                          class="inline-block text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-terracotta-50 text-terracotta-600 border border-terracotta-500/20"></span>
+                                </div>
+                                <p id="polaroid-caption" class="w-full font-hand text-2xl sm:text-3xl text-ink leading-tight"></p>
+                                <p id="polaroid-note" class="w-full text-xs sm:text-sm text-muted mt-1 leading-relaxed"></p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <button id="next-polaroid-btn"
+                            type="button"
+                            aria-label="Next Polaroid photo"
+                            class="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-cardpaper hover:bg-sage-50 border border-sage-600/25 text-ink font-bold shadow-sm hover:translate-x-0.5 active:scale-95 transition flex items-center justify-center cursor-pointer">
+                        →
+                    </button>
+                </div>
+
+                <!-- Clickable Thumbnail Strip -->
+                <div id="polaroid-thumbnails"
+                     class="mt-6 pt-5 border-t border-sage-600/15 flex items-center justify-center sm:justify-start gap-3 overflow-x-auto no-scrollbar"></div>
+
+                <!-- Subtle Secret Vault Trigger for 5 Epic Pictures (HAHA, HAHA1, HAHA2, HAHA4, HAHA3) -->
+                <div class="mt-6 pt-4 border-t border-dashed border-sage-600/20 flex items-center justify-between gap-3">
+                    <span class="font-hand text-xl text-muted/85">
+                        Psst... a hidden stash is tucked away here
+                    </span>
+                    <button id="secret-epic-toggle-btn"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="epic-pictures-section"
+                            aria-label="Unlock secret 5 Epic Pictures vault"
+                            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide text-muted hover:text-ink bg-linen/80 hover:bg-honey-50 border border-sage-600/20 hover:border-honey-500/45 active:scale-95 transition cursor-pointer">
+                        <span id="secret-epic-icon" aria-hidden="true">🔒</span>
+                        <span id="secret-epic-label">Secret Vault</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- 3B. HIDDEN SECRET VAULT: 5 EPIC PICTURES (HAHA, HAHA1, HAHA2, HAHA4, HAHA3) -->
+        <!-- ================================================================= -->
+        <section id="epic-pictures-section"
+                 aria-labelledby="epic-pictures-heading"
+                 class="hidden mb-14">
+            <div class="relative bg-cardpaper border border-honey-500/35 rounded-[2rem] p-5 sm:p-8 shadow-lg animate-cardPopIn">
+                <span aria-hidden="true" class="washi-tape washi-sky w-24 h-6 rounded-sm rotate-[3deg] -top-3 right-8"></span>
+                <span aria-hidden="true" class="washi-tape washi-gold w-20 h-5 rounded-sm -rotate-2 -top-2.5 left-8"></span>
+
+                <div class="flex flex-wrap items-end justify-between gap-3 mb-6">
+                    <div>
+                        <span class="font-hand text-2xl sm:text-3xl text-terracotta-600 block leading-none animate-gentleFloat">
+                            Secret Vault Unlocked!
+                        </span>
+                        <h3 id="epic-pictures-heading" class="font-display text-2xl sm:text-4xl font-bold text-ink mt-1">
+                            5 Epic Pictures
+                        </h3>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full bg-honey-50 text-honey-600 border border-honey-500/25">
+                            5 Epic Frames
+                        </span>
+                        <button id="hide-epic-vault-btn"
+                                type="button"
+                                aria-label="Hide 5 Epic Pictures vault"
+                                class="text-xs font-semibold px-3 py-1.5 rounded-full bg-linen hover:bg-terracotta-50 text-muted hover:text-terracotta-600 border border-sage-600/20 active:scale-95 transition cursor-pointer">
+                            Hide Vault
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 5 Epic Pictures Grid (Populated via EPIC_PHOTOS, 5th card centered on desktop) -->
+                <div id="epic-pictures-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6"></div>
+            </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- 3C. PURE SWEETNESS & SMILES — 3 CUTEST PICS OF HER (CUTE, CUTE1, CUTE2) -->
+        <!-- ================================================================= -->
+        <section id="cutest-pictures-section"
+                 aria-labelledby="cutest-pictures-heading"
+                 class="reveal-item mb-14">
+            <div class="relative bg-cardpaper border border-terracotta-500/25 rounded-[2rem] p-5 sm:p-8 shadow-md">
+                <span aria-hidden="true" class="washi-tape washi-terracotta w-24 h-6 rounded-sm -rotate-2 -top-3 left-8"></span>
+                <span aria-hidden="true" class="washi-tape washi-gold w-20 h-5 rounded-sm rotate-3 -top-2.5 right-8"></span>
+
+                <div class="flex flex-wrap items-end justify-between gap-3 mb-6">
+                    <div>
+                        <span class="font-hand text-2xl sm:text-3xl text-terracotta-600 block leading-none animate-gentleFloat">
+                            Pure Sweetness &amp; Smiles
+                        </span>
+                        <h3 id="cutest-pictures-heading" class="font-display text-2xl sm:text-4xl font-bold text-ink mt-1">
+                            3 Cutest Pics of Her
+                        </h3>
+                    </div>
+                    <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full bg-terracotta-50 text-terracotta-600 border border-terracotta-500/25">
+                        3 Cute Frames
+                    </span>
+                </div>
+
+                <!-- 3 Cutest Pics Grid (Populated via CUTEST_PHOTOS) -->
+                <div id="cutest-pictures-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-5"></div>
+            </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- 3D. PASSCODE-LOCKED BIRTHDAY MESSAGE & APPRECIATION NOTES (112331) -->
+        <!-- ================================================================= -->
+        <section aria-labelledby="birthday-letter-heading" class="reveal-item mb-14">
+            <div class="relative bg-cardpaper border border-sage-600/20 rounded-[2rem] p-6 sm:p-10 shadow-md">
+                <span aria-hidden="true" class="washi-tape washi-terracotta w-20 h-4 rounded-sm -rotate-2 -top-2.5 left-8"></span>
+                <span aria-hidden="true" class="washi-tape washi-sage w-20 h-4 rounded-sm rotate-2 -top-2.5 right-8"></span>
+
+                <div class="mb-7 pb-5 border-b border-sage-600/15 text-center sm:text-left">
+                    <span class="font-hand text-2xl sm:text-3xl text-sage-700 block">
+                        A Little Birthday Letter
+                    </span>
+                    <h3 id="birthday-letter-heading" class="font-display italic text-xl sm:text-2xl text-ink mt-1.5 leading-snug">
+                        “I thank my God every time I remember you.”
+                    </h3>
+                    <p class="mt-1 text-[11px] font-bold uppercase tracking-[0.2em] text-muted">
+                        Philippians 1:3
+                    </p>
+                </div>
+
+                <!-- Passcode Lock Gate (No visible passcode hint on UI) -->
+                <div id="message-lock-gate"
+                     class="relative bg-linen/85 border border-terracotta-500/25 rounded-3xl px-5 py-8 sm:px-8 sm:py-10 text-center animate-cardPopIn">
+                    <div id="message-lock-emblem"
+                         aria-hidden="true"
+                         class="w-16 h-16 mx-auto rounded-full bg-terracotta-50 border border-terracotta-500/30 flex items-center justify-center text-3xl shadow-sm animate-gentleFloat">
+                        🔐
+                    </div>
+
+                    <p class="font-hand text-2xl sm:text-3xl text-terracotta-600 mt-4">
+                        Saved something special for you, Ate Joan
+                    </p>
+                    <h4 class="font-display text-2xl sm:text-3xl font-bold text-ink mt-1">
+                        Enter the passcode to open
+                    </h4>
+                    <p class="mt-2 text-xs sm:text-sm text-muted max-w-md mx-auto leading-relaxed">
+                        Type in the passcode below to unlock this birthday letter and a few little appreciation notes.
+                    </p>
+
+                    <form id="message-passcode-form" class="mt-6 max-w-xs mx-auto space-y-3" novalidate>
+                        <div>
+                            <label for="message-passcode-input" class="sr-only">Enter passcode</label>
+                            <input id="message-passcode-input"
+                                   type="password"
+                                   inputmode="numeric"
+                                   maxlength="6"
+                                   autocomplete="off"
+                                   placeholder="••••••"
+                                   aria-describedby="message-passcode-feedback"
+                                   class="w-full text-center tracking-[0.45em] font-mono text-lg sm:text-xl font-bold bg-cardpaper text-ink placeholder:text-muted/45 placeholder:tracking-[0.35em] border border-sage-600/30 focus:border-terracotta-500 focus:ring-2 focus:ring-terracotta-500/20 rounded-2xl px-4 py-3 outline-none transition">
+                        </div>
+
+                        <p id="message-passcode-feedback"
+                           aria-live="polite"
+                           class="min-h-[1.25rem] text-xs font-medium text-terracotta-600">
+                        </p>
+
+                        <button id="unlock-message-btn"
+                                type="submit"
+                                aria-expanded="false"
+                                aria-controls="unlocked-message-content"
+                                class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-terracotta-500 hover:bg-terracotta-600 text-white text-xs sm:text-sm font-semibold shadow-md shadow-terracotta-500/20 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition cursor-pointer">
+                            <span aria-hidden="true">🔓</span>
+                            <span>Unlock Message</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Unlocked 8-Paragraph Birthday Message & Four Appreciation Notes -->
+                <div id="unlocked-message-content" class="hidden space-y-10">
+                    <div class="flex flex-wrap items-center justify-between gap-2 bg-sage-50/80 border border-sage-600/20 rounded-2xl px-4 py-2.5 animate-cardPopIn">
+                        <span class="text-xs font-semibold text-sage-700 inline-flex items-center gap-1.5">
+                            <span aria-hidden="true">💌</span>
+                            <span>Unlocked — Happy Birthday, Ms. Joan!</span>
+                        </span>
+                        <button id="lock-message-btn"
+                                type="button"
+                                aria-label="Lock birthday message again"
+                                class="text-xs font-semibold px-3 py-1 rounded-full bg-cardpaper hover:bg-terracotta-50 text-muted hover:text-terracotta-600 border border-sage-600/20 active:scale-95 transition cursor-pointer">
+                            🔒 Lock Again
+                        </button>
+                    </div>
+
+                    <article id="birthday-letter-body" class="space-y-5 text-justify text-sm sm:text-base text-ink/90 leading-relaxed sm:leading-loose">
+                        <p class="reveal-item" style="transition-delay: 40ms;">Happiest Birthday to an extraordinary officemate, mentor, and someone I’m genuinely so blessed to have met, Ms. Joan! ❤️</p>
+                        <p class="reveal-item" style="transition-delay: 90ms;">What started as simply sharing a workspace eventually turned into one of the best parts of my workdays. You’re not just my best senior who guides me through work, but also someone who has become like an older sister to me. And honestly, that's something I appreciate more than words can say.</p>
+                        <p class="reveal-item" style="transition-delay: 140ms;">Thank you for always being so patient, generous with your knowledge, and willing to lend an ear whenever things get overwhelming. You have this way of making even the busiest and most stressful workdays feel a little lighter, whether through your warm smile, comforting words, or the advice you always seem to have ready.</p>
+                        <p class="reveal-item" style="transition-delay: 190ms;">But beyond work, thank you for making me feel that I have someone I can genuinely run to, not just when it comes to work-related concerns, but also with random calls, endless chika, and all my spontaneous kwentos about life and lovelife. HAHAHAHA! Thank you for patiently entertaining my random banat, corny jokes, and out-of-nowhere humor kahit minsan hindi naman talaga nakakatawa. 😭 Thank you for going along with my kalokohan, laughing with me (or at least pretending to HAHAHAHA), and never making me feel like my randomness is too much. I appreciate how you always make time to listen to all my stories, no matter how random or nonsense they may seem.</p>
+                        <p class="reveal-item" style="transition-delay: 240ms;">And of course, thank you for all the advice about life, love, and everything in between. Thank you for sharing your wisdom and for always making me realize things I sometimes fail to see on my own. Your words have honestly made me reflect on a lot of things and see situations from a different perspective. Kahit minsan feeling ko pati ikaw nalilito na rin sa mga kwento ko. At this point, parang pareho na tayong confused sa lovelife ko! 😭 HAHAHAHA! But kidding aside, I genuinely treasure those random conversations because I always get to take something meaningful away from them.</p>
+                        <p class="reveal-item" style="transition-delay: 290ms;">On your special day, I pray that God continues to bless you with good health, genuine happiness, peace of mind, answered prayers, and all the beautiful things your heart deserves. I hope life gives you the same warmth, kindness, and happiness that you effortlessly share with the people around you. May you continue to grow, achieve your dreams, and experience all the wonderful things you've been praying for.</p>
+                        <p class="reveal-item" style="transition-delay: 340ms;">Thank you for being more than just an amazing colleague. Thank you for being someone who makes work feel less like work, someone I can laugh with over the simplest things, and someone who makes me feel like I have an older sister I can always learn from and look up to. I'm genuinely grateful that work brought us together, because I gained more than just a mentor; I gained someone I truly appreciate beyond the workplace.</p>
+                        <p class="reveal-item" style="transition-delay: 390ms;">I hope you know how much you are appreciated, not just for what you do, but for who you are. Enjoy your special day, Ms. Joan! You deserve all the love, happiness, and blessings life has to offer. Happiest birthday! More random chikas, calls, jokes, and memories with you! Love lots! ❤️</p>
+                    </article>
+
+                    <!-- Four Appreciation Notes -->
+                    <section aria-labelledby="sticky-notes-heading" class="pt-4 border-t border-sage-600/15 animate-cardPopIn">
+                        <div class="mb-5 px-1">
+                            <span class="font-hand text-2xl sm:text-3xl text-terracotta-600 block">
+                                Little Appreciation Notes
+                            </span>
+                            <h4 id="sticky-notes-heading" class="font-display text-2xl sm:text-3xl font-bold text-ink">
+                                Four Things We Love About Ms. Joan
+                            </h4>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- Note 1 -->
+                            <article class="sticky-note relative bg-honey-50 border border-honey-500/25 rounded-2xl p-6 -rotate-1 hover:rotate-0 hover:-translate-y-1.5 transition-all duration-300 animate-cardPopIn"
+                                     style="animation-delay: 60ms;">
+                                <span aria-hidden="true" class="washi-tape washi-gold w-16 h-4 rounded-sm rotate-[-3deg] -top-2 left-6"></span>
+                                <p class="font-hand text-2xl text-ink font-semibold">Patient &amp; Generous Mentor</p>
+                                <p class="mt-2 text-sm text-muted leading-relaxed">
+                                    Always ready to guide with patience, clarity, and encouraging words even when deadlines pile up.
+                                </p>
+                            </article>
+
+                            <!-- Note 2 -->
+                            <article class="sticky-note relative bg-terracotta-50 border border-terracotta-500/25 rounded-2xl p-6 rotate-1 hover:rotate-0 hover:-translate-y-1.5 transition-all duration-300 animate-cardPopIn"
+                                     style="animation-delay: 120ms;">
+                                <span aria-hidden="true" class="washi-tape washi-terracotta w-16 h-4 rounded-sm rotate-[3deg] -top-2 right-6"></span>
+                                <p class="font-hand text-2xl text-ink font-semibold">Best Chika &amp; Joke Partner</p>
+                                <p class="mt-2 text-sm text-muted leading-relaxed">
+                                    Never makes random calls, kwentos, or corny jokes feel like too much,always bringing genuine laughs.
+                                </p>
+                            </article>
+
+                            <!-- Note 3 -->
+                            <article class="sticky-note relative bg-sage-50 border border-sage-600/25 rounded-2xl p-6 rotate-[1.2deg] hover:rotate-0 hover:-translate-y-1.5 transition-all duration-300 animate-cardPopIn"
+                                     style="animation-delay: 180ms;">
+                                <span aria-hidden="true" class="washi-tape washi-sage w-16 h-4 rounded-sm rotate-[-2deg] -top-2 left-8"></span>
+                                <p class="font-hand text-2xl text-ink font-semibold">Wise &amp; Grounding Advice</p>
+                                <p class="mt-2 text-sm text-muted leading-relaxed">
+                                    Helps turn confusing life and lovelife twists into clear reflections and meaningful takeaways.
+                                </p>
+                            </article>
+
+                            <!-- Note 4 -->
+                            <article class="sticky-note relative bg-skywash-50 border border-skywash-500/25 rounded-2xl p-6 -rotate-[1.2deg] hover:rotate-0 hover:-translate-y-1.5 transition-all duration-300 animate-cardPopIn"
+                                     style="animation-delay: 240ms;">
+                                <span aria-hidden="true" class="washi-tape washi-sky w-16 h-4 rounded-sm rotate-[4deg] -top-2 right-8"></span>
+                                <p class="font-hand text-2xl text-ink font-semibold">Older Sister Energy</p>
+                                <p class="mt-2 text-sm text-muted leading-relaxed">
+                                    Someone cherished far beyond the workplace-warm, loyal, and deeply appreciated every single day.
+                                </p>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer with Replay Wish & Candle Button -->
+        <footer class="reveal-item text-center pt-6 border-t border-sage-600/15">
+            <p class="font-hand text-2xl text-ink">
+                Wishing You Endless Blessings, Ms. Joan ❤️
+            </p>
+            <div class="mt-4">
+                <button id="replay-ritual-btn"
+                        type="button"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cardpaper hover:bg-sage-50 text-ink text-xs sm:text-sm font-semibold border border-sage-600/25 shadow-xs active:scale-95 transition cursor-pointer">
+                    <span aria-hidden="true">🕯️</span>
+                    <span>Replay Wish &amp; Candle</span>
+                </button>
+            </div>
+        </footer>
+    </main>
+
+    <!-- ===================================================================== -->
+    <!-- 4. FULL-SCREEN LIGHTBOX MODAL                                         -->
+    <!-- ===================================================================== -->
+    <div id="lightbox-modal"
+         role="dialog"
+         aria-modal="true"
+         aria-label="Full-screen photo viewer"
+         class="fixed inset-0 z-50 hidden items-center justify-center bg-ink/80 backdrop-blur-sm p-4 sm:p-6">
+        <div id="lightbox-card"
+             class="relative w-full max-w-3xl bg-cardpaper rounded-3xl p-4 sm:p-6 shadow-2xl border border-sage-600/20 animate-cardPopIn">
+            <!-- Top Bar -->
+            <div class="flex items-center justify-between gap-3 mb-3">
+                <span id="lightbox-counter"
+                      class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-sage-50 text-sage-700 border border-sage-600/20">
+                    01 / 04
+                </span>
+                <button id="lightbox-close-btn"
+                        type="button"
+                        aria-label="Close photo viewer"
+                        class="w-9 h-9 rounded-full bg-linen hover:bg-terracotta-100 text-ink font-bold flex items-center justify-center active:scale-95 transition cursor-pointer">
+                    ✕
+                </button>
+            </div>
+
+            <!-- Image Container -->
+            <div class="relative flex items-center justify-center bg-linen rounded-2xl overflow-hidden aspect-[4/3] max-h-[62vh]">
+                <div id="lightbox-image-box" class="w-full h-full flex items-center justify-center"></div>
+
+                <button id="lightbox-prev-btn"
+                        type="button"
+                        aria-label="Previous photo in viewer"
+                        class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-cardpaper/95 hover:bg-white text-ink font-bold shadow-md border border-sage-600/20 active:scale-95 transition flex items-center justify-center cursor-pointer">
+                    ←
+                </button>
+
+                <button id="lightbox-next-btn"
+                        type="button"
+                        aria-label="Next photo in viewer"
+                        class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-cardpaper/95 hover:bg-white text-ink font-bold shadow-md border border-sage-600/20 active:scale-95 transition flex items-center justify-center cursor-pointer">
+                    →
+                </button>
+            </div>
+
+            <!-- Full-Width Stacked Caption & Note -->
+            <div class="mt-4 px-1 w-full">
+                <p id="lightbox-caption" class="w-full font-hand text-2xl sm:text-3xl text-ink leading-tight"></p>
+                <p id="lightbox-note" class="w-full text-xs sm:text-sm text-muted mt-1 leading-relaxed"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- 5. APPLICATION LOGIC (LOCAL FILE LOOKUP, AUDIO, GALLERIES & LOCK)    -->
+    <!-- ===================================================================== -->
+    <script>
+        function makeSvgDataUri(svgString) {
+            return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgString.trim());
+        }
+
+        const LOCAL_IMAGE_EXTENSIONS = ['.jpg', '.png', '.webp', '.jpeg'];
+
+        function buildLocalFileCandidates(baseName) {
+            const clean = String(baseName || '').trim();
+            if (!clean) return [];
+            const encoded = encodeURIComponent(clean);
+            const list = [];
+            LOCAL_IMAGE_EXTENSIONS.forEach((ext) => {
+                list.push(`./${encoded}${ext}`);
+                if (encoded !== clean) {
+                    list.push(`./${clean}${ext}`);
+                }
+            });
+            return list;
+        }
+
+        function bindLocalAssetWithFallback(imgEl, baseName, fallbackSrc) {
+            if (!imgEl) return;
+            const candidates = buildLocalFileCandidates(baseName);
+            let candidateIdx = 0;
+
+            function tryNextCandidate() {
+                if (candidateIdx < candidates.length) {
+                    const nextUrl = candidates[candidateIdx];
+                    candidateIdx += 1;
+                    imgEl.src = nextUrl;
+                } else if (imgEl.src !== fallbackSrc) {
+                    imgEl.src = fallbackSrc;
+                }
+            }
+
+            imgEl.addEventListener('error', tryNextCandidate);
+            tryNextCandidate();
+        }
+
+        // Intro portrait fallback ("BDAY GIRL")
+        const INTRO_FALLBACK_SRC = makeSvgDataUri(`
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360">
+                <defs>
+                    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#E1ECE5"/>
+                        <stop offset="100%" stop-color="#F9E1D7"/>
+                    </linearGradient>
+                </defs>
+                <rect width="360" height="360" fill="url(#bgGrad)"/>
+                <circle cx="180" cy="142" r="56" fill="#FFFDF8" stroke="#456452" stroke-width="4"/>
+                <path d="M84 316 C88 242 132 214 180 214 C228 214 272 242 276 316" fill="#FFFDF8" stroke="#456452" stroke-width="4"/>
+                <circle cx="162" cy="136" r="5" fill="#222E26"/>
+                <circle cx="198" cy="136" r="5" fill="#222E26"/>
+                <path d="M164 156 Q180 170 196 156" fill="none" stroke="#C86D51" stroke-width="4" stroke-linecap="round"/>
+                <text x="180" y="274" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#222E26">MJ</text>
+                <text x="180" y="300" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#57655C">Ms. Joan</text>
+            </svg>
+        `);
+
+        // Polaroid Lookbook Keepsake Snapshots: WITH, WITH1, WITH2, WITH3
+        const POLAROID_ITEMS = [
+            {
+                fileBase: 'WITH',
+                fallbackSrc: makeSvgDataUri(`
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+                        <rect width="800" height="600" fill="#E1ECE5"/>
+                        <rect x="64" y="64" width="672" height="472" rx="28" fill="#FFFDF8" stroke="#456452" stroke-width="3"/>
+                        <circle cx="245" cy="255" r="78" fill="#F9E1D7"/>
+                        <path d="M245 200 L258 232 L292 236 L266 258 L274 292 L245 274 L216 292 L224 258 L198 236 L232 232 Z" fill="#C86D51"/>
+                        <rect x="360" y="196" width="290" height="22" rx="11" fill="#456452" opacity="0.8"/>
+                        <rect x="360" y="238" width="235" height="16" rx="8" fill="#57655C" opacity="0.45"/>
+                        <rect x="360" y="270" width="260" height="16" rx="8" fill="#57655C" opacity="0.3"/>
+                        <text x="400" y="425" text-anchor="middle" font-family="Georgia, serif" font-size="32" fill="#222E26">Workspace to Best Senior</text>
+                        <text x="400" y="466" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#57655C">Sharing a desk that turned into one of the best parts of every workday</text>
+                    </svg>
+                `),
+                caption: 'Best Senior & Mentor',
+                note: 'Patient guidance, warm smiles, and calm energy on busy days.',
+                badge: 'Tamoya • Oct 2026'
+            },
+            {
+                fileBase: 'WITH1',
+                fallbackSrc: makeSvgDataUri(`
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+                        <rect width="800" height="600" fill="#F9E1D7"/>
+                        <rect x="64" y="64" width="672" height="472" rx="28" fill="#FFFDF8" stroke="#C86D51" stroke-width="3"/>
+                        <circle cx="240" cy="250" r="76" fill="#F9EECA"/>
+                        <path d="M204 242 Q240 286 276 242" fill="none" stroke="#C86D51" stroke-width="7" stroke-linecap="round"/>
+                        <circle cx="218" cy="224" r="5" fill="#222E26"/>
+                        <circle cx="262" cy="224" r="5" fill="#222E26"/>
+                        <rect x="355" y="196" width="295" height="22" rx="11" fill="#C86D51" opacity="0.82"/>
+                        <rect x="355" y="238" width="245" height="16" rx="8" fill="#57655C" opacity="0.45"/>
+                        <rect x="355" y="270" width="215" height="16" rx="8" fill="#57655C" opacity="0.3"/>
+                        <text x="400" y="425" text-anchor="middle" font-family="Georgia, serif" font-size="32" fill="#222E26">Random Calls &amp; Endless Chika</text>
+                        <text x="400" y="466" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#57655C">Spontaneous kwentos, corny jokes, and kalokohan that always get a laugh</text>
+                    </svg>
+                `),
+                caption: 'Coffee & Easy Laughs',
+                note: 'Warm coffee table hangs, shared stories, and genuine laughs together.',
+                badge: 'JCO • Oct 2026'
+            },
+            {
+                fileBase: 'WITH2',
+                fallbackSrc: makeSvgDataUri(`
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+                        <rect width="800" height="600" fill="#DFEEF5"/>
+                        <rect x="64" y="64" width="672" height="472" rx="28" fill="#FFFDF8" stroke="#5C859C" stroke-width="3"/>
+                        <circle cx="240" cy="250" r="76" fill="#E1ECE5"/>
+                        <path d="M240 194 L254 234 L294 248 L254 262 L240 302 L226 262 L186 248 L226 234 Z" fill="#5C859C"/>
+                        <rect x="355" y="196" width="295" height="22" rx="11" fill="#5C859C" opacity="0.82"/>
+                        <rect x="355" y="238" width="250" height="16" rx="8" fill="#57655C" opacity="0.45"/>
+                        <rect x="355" y="270" width="230" height="16" rx="8" fill="#57655C" opacity="0.3"/>
+                        <text x="400" y="425" text-anchor="middle" font-family="Georgia, serif" font-size="32" fill="#222E26">Life &amp; Lovelife Advice</text>
+                        <text x="400" y="466" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#57655C">Thoughtful wisdom and fresh perspectives even when we are both confused</text>
+                    </svg>
+                `),
+                caption: 'Playful Hangout Energy',
+                note: 'Natural group poses and relaxed fun across every spot.',
+                badge: 'Team Hangout • Nov 2026'
+            },
+            {
+                fileBase: 'WITH3',
+                fallbackSrc: makeSvgDataUri(`
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+                        <rect width="800" height="600" fill="#F9EECA"/>
+                        <rect x="64" y="64" width="672" height="472" rx="28" fill="#FFFDF8" stroke="#C5963E" stroke-width="3"/>
+                        <circle cx="240" cy="250" r="76" fill="#F9E1D7"/>
+                        <path d="M240 282 C206 258 206 218 229 212 C239 210 240 221 240 221 C240 221 241 210 251 212 C274 218 274 258 240 282 Z" fill="#C86D51"/>
+                        <rect x="355" y="196" width="295" height="22" rx="11" fill="#C5963E" opacity="0.85"/>
+                        <rect x="355" y="238" width="240" height="16" rx="8" fill="#57655C" opacity="0.45"/>
+                        <rect x="355" y="270" width="260" height="16" rx="8" fill="#57655C" opacity="0.3"/>
+                        <text x="400" y="425" text-anchor="middle" font-family="Georgia, serif" font-size="32" fill="#222E26">Like an Older Sister</text>
+                        <text x="400" y="466" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#57655C">Gained more than a colleague—someone deeply appreciated beyond work</text>
+                    </svg>
+                `),
+                caption: 'Beyond the Workspace',
+                note: '@Joan pic sa 9th floor',
+                badge: 'Office Snapshot • Oct 2026'
+            }
+        ];
+
+        // Hidden Secret Vault — 5 Epic Pictures: HAHA, HAHA1, HAHA2, HAHA4, HAHA3
+        const EPIC_PHOTOS = [
+            {
+                fileBase: 'HAHA',
+                fallbackSrc: makeSvgDataUri(`
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560">
+                        <rect width="800" height="560" fill="#222E26"/>
+                        <rect x="46" y="46" width="708" height="468" rx="24" fill="#354E40" stroke="#C5963E" stroke-width="3"/>
+                        <polygon points="400,118 432,184 504,194 452,244 464,316 400,282 336,316 348,244 296,194 368,184" fill="#C5963E"/>
+                        <text x="400" y="384" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#FFFDF8">EPIC 01</text>
+                        <text x="400" y="428" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#E1ECE5">Throwback Camera Days</text>
+                    </svg>
+                `),
+                caption: 'Throwback Camera Days',
+                note: 'Sana all photographer HAHAHA',
+                tag: 'Instagram',
+                tiltClass: '-rotate-1 hover:rotate-0'
+            },
+            {
+                fileBase: 'HAHA1',
+                fallbackSrc: makeSvgDataUri(`
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560">
+                        <rect width="800" height="560" fill="#4A281E"/>
+                        <rect x="46" y="46" width="708" height="468" rx="24" fill="#AD573D" stroke="#F9EECA" stroke-width="3"/>
+                        <circle cx="400" cy="214" r="78" fill="#F9EECA"/>
+                        <path d="M362 208 Q400 254 438 208" fill="none" stroke="#4A281E" stroke-width="9" stroke-linecap="round"/>
+                        <circle cx="376" cy="192" r="6" fill="#4A281E"/>
+                        <circle cx="424" cy="192" r="6" fill="#4A281E"/>
+                        <text x="400" y="384" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#FFFDF8">EPIC 02</text>
+                        <text x="400" y="428" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#F9E1D7">Peak Chika, Banat &amp; Laughs</text>
+                    </svg>
+                `),
+                caption: 'B&W Throwback Selfie',
+                note: 'Emo HAHAHA',
+                tag: 'Sagpro',
+                tiltClass: 'rotate-1 hover:rotate-0'
+            },
+            {
+                fileBase: 'HAHA2',
+                fallbackSrc: makeSvgDataUri(`
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560">
+                        <rect width="800" height="560" fill="#1F3440"/>
+                        <rect x="46" y="46" width="708" height="468" rx="24" fill="#4B748B" stroke="#DFEEF5" stroke-width="3"/>
+                        <circle cx="400" cy="214" r="74" fill="#DFEEF5" fill-opacity="0.18" stroke="#DFEEF5" stroke-width="4"/>
+                        <path d="M400 158 L416 198 L456 214 L416 230 L400 270 L384 230 L344 214 L384 198 Z" fill="#F9EECA"/>
+                        <text x="400" y="384" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#FFFDF8">EPIC 03</text>
+                        <text x="400" y="428" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#DFEEF5">Lovelife Plot Twists &amp; Wise Advice</text>
+                    </svg>
+                `),
+                caption: 'One More Scroll',
+                note: 'Deciding whether to log in or scroll one more time.',
+                tag: 'KnowApp Pilot Run, August 2026',
+                tiltClass: 'rotate-[1.2deg] hover:rotate-0'
+            },
+            {
+                fileBase: 'HAHA4',
+                fallbackSrc: makeSvgDataUri(`
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560">
+                        <rect width="800" height="560" fill="#222E26"/>
+                        <rect x="46" y="46" width="708" height="468" rx="24" fill="#354E40" stroke="#C5963E" stroke-width="3"/>
+                        <polygon points="400,118 432,184 504,194 452,244 464,316 400,282 336,316 348,244 296,194 368,184" fill="#C5963E"/>
+                        <text x="400" y="384" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#FFFDF8">EPIC 04</text>
+                        <text x="400" y="428" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#E1ECE5">Penalty Lunch out</text>
+                    </svg>
+                `),
+                caption: 'Penalty Lunch out',
+                note: 'Stolen shot ka saakin HAHAHA',
+                tag: 'Pepper Lunch, September 2026',
+                tiltClass: '-rotate-1 hover:rotate-0'
+            },
+            {
+                fileBase: 'HAHA3',
+                fallbackSrc: makeSvgDataUri(`
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560">
+                        <rect width="800" height="560" fill="#473514"/>
+                        <rect x="46" y="46" width="708" height="468" rx="24" fill="#A37726" stroke="#FFFDF8" stroke-width="3"/>
+                        <path d="M400 286 C332 240 332 164 378 152 C398 147 400 168 400 168 C400 168 402 147 422 152 C468 164 468 240 400 286 Z" fill="#FFFDF8"/>
+                        <text x="400" y="384" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#FFFDF8">EPIC 05</text>
+                        <text x="400" y="428" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#F9EECA">Celebrating Ate Joan Today &amp; Always</text>
+                    </svg>
+                `),
+                caption: 'Sleep Well',
+                note: 'Hoping you dreamed of Reports.',
+                tag: 'Tulog ako',
+                tiltClass: '-rotate-[1.2deg] hover:rotate-0'
+            }
+        ];
+
+        // Pure Sweetness & Smiles — 3 Cutest Pics of Her: CUTE, CUTE1, CUTE2
+        const CUTEST_PHOTOS = [
+            {
+                fileBase: 'CUTE',
+                fallbackSrc: makeSvgDataUri(`
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560">
+                        <rect width="720" height="560" fill="#FDF3EF"/>
+                        <rect x="44" y="44" width="632" height="472" rx="26" fill="#FFFDF8" stroke="#C86D51" stroke-width="3"/>
+                        <circle cx="360" cy="212" r="84" fill="#F9E1D7"/>
+                        <circle cx="332" cy="196" r="6" fill="#222E26"/>
+                        <circle cx="388" cy="196" r="6" fill="#222E26"/>
+                        <ellipse cx="314" cy="216" rx="11" ry="6" fill="#C86D51" opacity="0.45"/>
+                        <ellipse cx="406" cy="216" rx="11" ry="6" fill="#C86D51" opacity="0.45"/>
+                        <path d="M336 226 Q360 250 384 226" fill="none" stroke="#C86D51" stroke-width="4.5" stroke-linecap="round"/>
+                        <text x="360" y="376" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#222E26">Cute 01 • Sunshine Smile</text>
+                        <text x="360" y="416" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#57655C">Effortless warmth that brightens the whole room</text>
+                    </svg>
+                `),
+                caption: 'Stairs Wave & Smile',
+                note: 'Warm smile and a cheerful wave in black and cream.',
+                tag: 'Cutest',
+                tiltClass: '-rotate-1.5 hover:rotate-0'
+            },
+            {
+                fileBase: 'CUTE1',
+                fallbackSrc: makeSvgDataUri(`
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560">
+                        <rect width="720" height="560" fill="#FDF8EA"/>
+                        <rect x="44" y="44" width="632" height="472" rx="26" fill="#FFFDF8" stroke="#C5963E" stroke-width="3"/>
+                        <circle cx="360" cy="212" r="84" fill="#F9EECA"/>
+                        <path d="M324 198 Q333 186 342 198" fill="none" stroke="#222E26" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M378 198 Q387 186 396 198" fill="none" stroke="#222E26" stroke-width="4" stroke-linecap="round"/>
+                        <circle cx="360" cy="228" r="9" fill="#C86D51" opacity="0.8"/>
+                        <text x="360" y="376" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#222E26">Cute 02 • Playful Giggle</text>
+                        <text x="360" y="416" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#57655C">Caught mid-laugh during random chika and corny jokes</text>
+                    </svg>
+                `),
+                caption: 'Lounge Table Focus',
+                note: 'Time in ako HAHAHA',
+                tag: 'Subway',
+                tiltClass: 'rotate-1.5 hover:rotate-0'
+            },
+            {
+                fileBase: 'CUTE2',
+                fallbackSrc: makeSvgDataUri(`
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560">
+                        <rect width="720" height="560" fill="#F2F7F4"/>
+                        <rect x="44" y="44" width="632" height="472" rx="26" fill="#FFFDF8" stroke="#597C68" stroke-width="3"/>
+                        <circle cx="360" cy="212" r="84" fill="#E1ECE5"/>
+                        <path d="M360 252 C314 222 314 172 346 164 C358 161 360 175 360 175 C360 175 362 161 374 164 C406 172 406 222 360 252 Z" fill="#C86D51"/>
+                        <text x="360" y="376" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#222E26">Cute 03 • Sweetest Ate Joan</text>
+                        <text x="360" y="416" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#57655C">Kind-hearted, caring, and endlessly lovable</text>
+                    </svg>
+                `),
+                caption: 'Cozy Gray Cardigan',
+                note: 'Soft, sweet smile resting her cheek on her hand.',
+                tag: 'Camera',
+                tiltClass: '-rotate-1 hover:rotate-0'
+            }
+        ];
+
+        // Rotating Birthday Wishes for Ms. Joan
+        const BIRTHDAY_WISHES = [
+            '"May your year ahead overflow with good health, calm mornings, answered prayers, and joy that stays."',
+            '"Wishing you peace of mind, exciting milestones, and days filled with easy laughs and warm blessings."',
+            '"May every kindness you give to others return to you tenfold—today, this year, and always, Ms. Joan!"',
+            '"Here is to more random chikas, fun calls, corny jokes, and bright new memories ahead!"'
+        ];
+
+        (function initScrapbookApp() {
+            const $ = (id) => document.getElementById(id);
+            const toastLayer = $('toast-layer');
+            let revealObserver = null;
+
+            function observeRevealElements() {
+                try {
+                    const targets = Array.from(document.querySelectorAll('.reveal-item'));
+                    if (!targets.length) return;
+
+                    if (!('IntersectionObserver' in window)) {
+                        targets.forEach((el) => el.classList.add('is-visible'));
+                        return;
+                    }
+
+                    if (!revealObserver) {
+                        revealObserver = new IntersectionObserver(
+                            (entries) => {
+                                entries.forEach((entry) => {
+                                    if (entry.isIntersecting) {
+                                        entry.target.classList.add('is-visible');
+                                        revealObserver.unobserve(entry.target);
+                                    }
+                                });
+                            },
+                            { threshold: 0.08, rootMargin: '0px 0px -24px 0px' }
+                        );
+                    }
+
+                    targets.forEach((el) => {
+                        if (el.classList.contains('is-visible')) return;
+                        const rect = el.getBoundingClientRect();
+                        if (rect.top < window.innerHeight * 0.96) {
+                            el.classList.add('is-visible');
+                        } else {
+                            revealObserver.observe(el);
+                        }
+                    });
+                } catch (err) {
+                    document.querySelectorAll('.reveal-item').forEach((el) => el.classList.add('is-visible'));
+                }
+            }
+
+            function showToast(message) {
+                if (!toastLayer) return;
+                try {
+                    const toast = document.createElement('div');
+                    toast.className = 'bg-ink text-white text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full shadow-xl border border-white/15 animate-toastSlide whitespace-nowrap';
+                    toast.textContent = message;
+                    toastLayer.innerHTML = '';
+                    toastLayer.appendChild(toast);
+                    window.setTimeout(() => {
+                        if (toast.parentNode === toastLayer) {
+                            toastLayer.removeChild(toast);
+                        }
+                    }, 2700);
+                } catch (err) {}
+            }
+
+            function createPhotoElement(item, altText, extraClass = 'w-full h-full object-cover') {
+                const img = document.createElement('img');
+                const fallback = item && item.fallbackSrc ? item.fallbackSrc : INTRO_FALLBACK_SRC;
+                img.alt = altText || 'Birthday keepsake photo';
+                img.className = extraClass;
+                if (item && item.fileBase) {
+                    bindLocalAssetWithFallback(img, item.fileBase, fallback);
+                } else {
+                    img.src = fallback;
+                }
+                return img;
+            }
+
+            const introPhotoImg = $('intro-photo-img');
+            if (introPhotoImg) {
+                bindLocalAssetWithFallback(introPhotoImg, 'BDAY GIRL', INTRO_FALLBACK_SRC);
+            }
+
+            // -----------------------------------------------------------------
+            // Clean Background Audio Player (Play/Pause + Mute/Unmute only)
+            // -----------------------------------------------------------------
+            const MP3_CANDIDATES = [
+                'Sabrina Jordan - Hazel Eyes (Lyrics).mp3',
+                './Sabrina Jordan - Hazel Eyes (Lyrics).mp3',
+                'Sabrina%20Jordan%20-%20Hazel%20Eyes%20(Lyrics).mp3',
+                './Sabrina%20Jordan%20-%20Hazel%20Eyes%20(Lyrics).mp3',
+                'audio/Sabrina Jordan - Hazel Eyes (Lyrics).mp3',
+                './audio/Sabrina Jordan - Hazel Eyes (Lyrics).mp3',
+                'audio/Sabrina%20Jordan%20-%20Hazel%20Eyes%20(Lyrics).mp3',
+                './audio/Sabrina%20Jordan%20-%20Hazel%20Eyes%20(Lyrics).mp3'
+            ];
+
+            const playPauseBtn = $('play-pause-btn');
+            const playPauseIcon = $('play-pause-icon');
+            const playPauseLabel = $('play-pause-label');
+            const muteUnmuteBtn = $('mute-unmute-btn');
+            const muteUnmuteIcon = $('mute-unmute-icon');
+            const eqBars = Array.from(document.querySelectorAll('.eq-bar'));
+
+            let isPlaying = false;
+            let isMuted = false;
+            let usingHtmlAudio = false;
+            let htmlAudio = null;
+            let audioCtx = null;
+            let masterGain = null;
+            let melodyTimer = null;
+            let noteStep = 0;
+
+            const MUSIC_BOX_NOTES = [
+                523.25, 659.25, 783.99, 659.25,
+                587.33, 698.46, 880.00, 698.46,
+                523.25, 659.25, 783.99, 987.77,
+                880.00, 783.99, 659.25, 587.33
+            ];
+
+            function syncAudioUi() {
+                if (playPauseIcon) playPauseIcon.textContent = isPlaying ? '❚❚' : '▶';
+                if (playPauseLabel) playPauseLabel.textContent = isPlaying ? 'Pause' : 'Play';
+                if (playPauseBtn) {
+                    playPauseBtn.setAttribute('aria-label', isPlaying ? 'Pause background music' : 'Play background music');
+                }
+                if (muteUnmuteIcon) muteUnmuteIcon.textContent = isMuted ? '🔇' : '🔊';
+                if (muteUnmuteBtn) {
+                    muteUnmuteBtn.setAttribute('aria-label', isMuted ? 'Unmute background music' : 'Mute background music');
+                }
+
+                eqBars.forEach((bar, idx) => {
+                    if (isPlaying && !isMuted) {
+                        bar.style.animation = `eqBounce ${0.75 + idx * 0.14}s ease-in-out infinite`;
+                    } else {
+                        bar.style.animation = 'none';
+                        bar.style.transform = 'scaleY(0.35)';
+                    }
+                });
+            }
+
+            function ensureMusicBoxContext() {
+                try {
+                    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                    if (!AudioContextClass) return false;
+                    if (!audioCtx) {
+                        audioCtx = new AudioContextClass();
+                        masterGain = audioCtx.createGain();
+                        masterGain.gain.value = isMuted ? 0 : 0.12;
+                        masterGain.connect(audioCtx.destination);
+                    }
+                    if (audioCtx.state === 'suspended') {
+                        audioCtx.resume().catch(() => {});
+                    }
+                    return true;
+                } catch (err) {
+                    return false;
+                }
+            }
+
+            function playMusicBoxChime(freq) {
+                if (!audioCtx || !masterGain || !isPlaying || isMuted) return;
+                try {
+                    const now = audioCtx.currentTime;
+                    const osc = audioCtx.createOscillator();
+                    const noteGain = audioCtx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(freq, now);
+
+                    noteGain.gain.setValueAtTime(0.0001, now);
+                    noteGain.gain.exponentialRampToValueAtTime(0.45, now + 0.03);
+                    noteGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.78);
+
+                    osc.connect(noteGain);
+                    noteGain.connect(masterGain);
+
+                    osc.start(now);
+                    osc.stop(now + 0.82);
+                } catch (err) {}
+            }
+
+            function startMusicBoxLoop() {
+                stopMusicBoxLoop();
+                if (!ensureMusicBoxContext()) return;
+                playMusicBoxChime(MUSIC_BOX_NOTES[noteStep % MUSIC_BOX_NOTES.length]);
+                noteStep += 1;
+                melodyTimer = window.setInterval(() => {
+                    if (!isPlaying || isMuted || usingHtmlAudio) return;
+                    playMusicBoxChime(MUSIC_BOX_NOTES[noteStep % MUSIC_BOX_NOTES.length]);
+                    noteStep += 1;
+                }, 620);
+            }
+
+            function stopMusicBoxLoop() {
+                if (melodyTimer) {
+                    window.clearInterval(melodyTimer);
+                    melodyTimer = null;
+                }
+            }
+
+            function isMp3LikelySilent(audioEl) {
+                if (!audioEl) return true;
+                const dur = audioEl.duration;
+                if (typeof dur === 'number' && !Number.isNaN(dur) && Number.isFinite(dur) && dur <= 0.15) {
+                    return true;
+                }
+                return false;
+            }
+
+            function tryLoadCandidateMp3(index = 0) {
+                if (index >= MP3_CANDIDATES.length) {
+                    usingHtmlAudio = false;
+                    htmlAudio = null;
+                    if (isPlaying && !isMuted) {
+                        startMusicBoxLoop();
+                    }
+                    return;
+                }
+
+                const candidateUrl = MP3_CANDIDATES[index];
+                try {
+                    const probe = new Audio();
+                    probe.preload = 'metadata';
+                    probe.muted = isMuted;
+                    let settled = false;
+
+                    const cleanup = () => {
+                        probe.removeEventListener('loadedmetadata', onMetadataOrReady);
+                        probe.removeEventListener('canplaythrough', onMetadataOrReady);
+                        probe.removeEventListener('error', onError);
+                    };
+
+                    const rejectCandidate = () => {
+                        if (settled) return;
+                        settled = true;
+                        cleanup();
+                        try {
+                            probe.removeAttribute('src');
+                            probe.load();
+                        } catch (e) {}
+                        tryLoadCandidateMp3(index + 1);
+                    };
+
+                    const onMetadataOrReady = () => {
+                        if (settled) return;
+                        if (isMp3LikelySilent(probe)) {
+                            rejectCandidate();
+                            return;
+                        }
+                        settled = true;
+                        cleanup();
+                        htmlAudio = probe;
+                        htmlAudio.loop = true;
+                        htmlAudio.muted = isMuted;
+                        usingHtmlAudio = true;
+
+                        htmlAudio.addEventListener('error', () => {
+                            usingHtmlAudio = false;
+                            htmlAudio = null;
+                            if (isPlaying && !isMuted) {
+                                startMusicBoxLoop();
+                            }
+                        });
+
+                        if (isPlaying) {
+                            stopMusicBoxLoop();
+                            htmlAudio.play().catch(() => {
+                                usingHtmlAudio = false;
+                                if (!isMuted) startMusicBoxLoop();
+                            });
+                        }
+                        syncAudioUi();
+                    };
+
+                    const onError = () => rejectCandidate();
+
+                    probe.addEventListener('loadedmetadata', onMetadataOrReady, { once: true });
+                    probe.addEventListener('canplaythrough', onMetadataOrReady, { once: true });
+                    probe.addEventListener('error', onError, { once: true });
+                    probe.src = candidateUrl;
+                    probe.load();
+                } catch (err) {
+                    tryLoadCandidateMp3(index + 1);
+                }
+            }
+
+            async function playBackgroundMusic() {
+                isPlaying = true;
+                syncAudioUi();
+
+                if (usingHtmlAudio && htmlAudio) {
+                    if (isMp3LikelySilent(htmlAudio)) {
+                        usingHtmlAudio = false;
+                        htmlAudio = null;
+                        startMusicBoxLoop();
+                        return;
+                    }
+                    htmlAudio.muted = isMuted;
+                    try {
+                        await htmlAudio.play();
+                        stopMusicBoxLoop();
+                        return;
+                    } catch (err) {}
+                }
+                startMusicBoxLoop();
+            }
+
+            function pauseBackgroundMusic() {
+                isPlaying = false;
+                stopMusicBoxLoop();
+                if (htmlAudio) {
+                    try {
+                        htmlAudio.pause();
+                    } catch (err) {}
+                }
+                syncAudioUi();
+            }
+
+            function toggleMuteMusic() {
+                isMuted = !isMuted;
+                if (htmlAudio) {
+                    htmlAudio.muted = isMuted;
+                }
+                if (masterGain && audioCtx) {
+                    try {
+                        masterGain.gain.setTargetAtTime(isMuted ? 0 : 0.12, audioCtx.currentTime, 0.04);
+                    } catch (err) {}
+                }
+                if (isPlaying && !isMuted && !usingHtmlAudio) {
+                    startMusicBoxLoop();
+                } else if (isMuted) {
+                    stopMusicBoxLoop();
+                }
+                syncAudioUi();
+            }
+
+            if (playPauseBtn) {
+                playPauseBtn.addEventListener('click', () => {
+                    if (isPlaying) pauseBackgroundMusic();
+                    else playBackgroundMusic();
+                });
+            }
+
+            if (muteUnmuteBtn) {
+                muteUnmuteBtn.addEventListener('click', toggleMuteMusic);
+            }
+
+            tryLoadCandidateMp3(0);
+            syncAudioUi();
+
+            // -----------------------------------------------------------------
+            // Intro & Wish / Candle Ritual (#intro-overlay -> #celebration-page)
+            // -----------------------------------------------------------------
+            const introOverlay = $('intro-overlay');
+            const celebrationPage = $('celebration-page');
+            const wishDisplayText = $('wish-display-text');
+            const newWishBtn = $('new-wish-btn');
+            const blowOutBtn = $('blow-out-candle-btn');
+            const cakeTrigger = $('cake-trigger');
+            const candleFlameGroup = $('candle-flame-group');
+            const candleSmokeLayer = $('candle-smoke-layer');
+            const candleStatusBadge = $('candle-status-badge');
+            const confettiLayer = $('confetti-layer');
+            const replayRitualBtn = $('replay-ritual-btn');
+
+            let wishIndex = 0;
+            let candleBlownOut = false;
+            let revealTimeout = null;
+
+            function cycleBirthdayWish() {
+                if (!wishDisplayText || !BIRTHDAY_WISHES.length) return;
+                wishIndex = (wishIndex + 1) % BIRTHDAY_WISHES.length;
+                wishDisplayText.style.opacity = '0';
+                window.setTimeout(() => {
+                    if (wishDisplayText) {
+                        wishDisplayText.textContent = BIRTHDAY_WISHES[wishIndex];
+                        wishDisplayText.style.opacity = '1';
+                    }
+                }, 140);
+            }
+
+            function emitSmokePuffs() {
+                if (!candleSmokeLayer) return;
+                candleSmokeLayer.innerHTML = '';
+                for (let i = 0; i < 6; i++) {
+                    const puff = document.createElement('span');
+                    puff.className = 'absolute left-1/2 bottom-0 w-4 h-4 rounded-full bg-muted/45 animate-smokeRise';
+                    puff.style.animationDelay = `${i * 110}ms`;
+                    puff.style.marginLeft = `${(i - 2.5) * 6}px`;
+                    candleSmokeLayer.appendChild(puff);
+                }
+            }
+
+            function launchConfettiBurst() {
+                if (!confettiLayer) return;
+                confettiLayer.innerHTML = '';
+                const colors = ['#C86D51', '#597C68', '#C5963E', '#5C859C', '#E88B6F'];
+                const pieceCount = 48;
+
+                for (let i = 0; i < pieceCount; i++) {
+                    const piece = document.createElement('span');
+                    const isCircle = i % 3 === 0;
+                    const leftPct = Math.random() * 100;
+                    const durationSec = (2.5 + Math.random() * 1.6).toFixed(2);
+                    const delayMs = Math.floor(Math.random() * 380);
+                    const driftX = `${Math.floor((Math.random() - 0.5) * 140)}px`;
+                    const spinDeg = `${Math.floor((Math.random() > 0.5 ? 1 : -1) * (360 + Math.random() * 420))}deg`;
+
+                    piece.className = isCircle
+                        ? 'absolute -top-4 w-2.5 h-2.5 rounded-full animate-confettiFall'
+                        : 'absolute -top-4 w-2.5 h-4 rounded-sm animate-confettiFall';
+                    piece.style.left = `${leftPct}%`;
+                    piece.style.backgroundColor = colors[i % colors.length];
+                    piece.style.animationDelay = `${delayMs}ms`;
+                    piece.style.setProperty('--fall-duration', `${durationSec}s`);
+                    piece.style.setProperty('--drift-x', driftX);
+                    piece.style.setProperty('--spin-deg', spinDeg);
+
+                    confettiLayer.appendChild(piece);
+                }
+
+                window.setTimeout(() => {
+                    if (confettiLayer) confettiLayer.innerHTML = '';
+                }, 4400);
+            }
+
+            function blowOutCandleAndRevealCelebration() {
+                if (candleBlownOut) return;
+                candleBlownOut = true;
+
+                if (candleFlameGroup) {
+                    candleFlameGroup.style.opacity = '0';
+                    candleFlameGroup.style.transform = 'scale(0.1)';
+                    candleFlameGroup.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+                }
+
+                if (candleStatusBadge) {
+                    candleStatusBadge.innerHTML = '<span>🎉</span><span>Wish Sent — Opening Keepsake</span>';
+                }
+
+                emitSmokePuffs();
+                launchConfettiBurst();
+                showToast('Happy Birthday, Ms. Joan! Wish sent ✨');
+                playBackgroundMusic();
+
+                if (revealTimeout) window.clearTimeout(revealTimeout);
+                revealTimeout = window.setTimeout(() => {
+                    if (introOverlay) introOverlay.classList.add('hidden');
+                    if (celebrationPage) {
+                        celebrationPage.classList.remove('hidden');
+                        celebrationPage.classList.add('animate-cardPopIn');
+                    }
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    observeRevealElements();
+                }, 850);
+            }
+
+            function replayWishAndCandleRitual() {
+                if (revealTimeout) {
+                    window.clearTimeout(revealTimeout);
+                    revealTimeout = null;
+                }
+                candleBlownOut = false;
+
+                if (candleFlameGroup) {
+                    candleFlameGroup.style.opacity = '1';
+                    candleFlameGroup.style.transform = '';
+                }
+                if (candleSmokeLayer) {
+                    candleSmokeLayer.innerHTML = '';
+                }
+                if (candleStatusBadge) {
+                    candleStatusBadge.innerHTML = '<span>✨</span><span>Make a Wish &amp; Blow Out Candle</span>';
+                }
+
+                if (celebrationPage) celebrationPage.classList.add('hidden');
+                if (introOverlay) {
+                    introOverlay.classList.remove('hidden');
+                    introOverlay.classList.add('animate-cardPopIn');
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            if (newWishBtn) newWishBtn.addEventListener('click', cycleBirthdayWish);
+            if (blowOutBtn) blowOutBtn.addEventListener('click', blowOutCandleAndRevealCelebration);
+            if (cakeTrigger) {
+                cakeTrigger.addEventListener('click', blowOutCandleAndRevealCelebration);
+                cakeTrigger.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        blowOutCandleAndRevealCelebration();
+                    }
+                });
+            }
+            if (replayRitualBtn) replayRitualBtn.addEventListener('click', replayWishAndCandleRitual);
+
+            // -----------------------------------------------------------------
+            // Polaroid Gallery, Secret Vault (5 Epic), 3 Cutest Pics & Lightbox
+            // -----------------------------------------------------------------
+            let activeGallery = 'polaroid';
+            let activeIndex = 0;
+            let touchStartX = 0;
+            let isEpicVaultUnlocked = false;
+
+            const polaroidStage = $('polaroid-stage');
+            const polaroidImageWrap = $('polaroid-image-wrap');
+            const polaroidImageBox = $('polaroid-image-box');
+            const polaroidCaption = $('polaroid-caption');
+            const polaroidNote = $('polaroid-note');
+            const polaroidBadge = $('polaroid-badge');
+            const polaroidCounter = $('polaroid-counter');
+            const polaroidThumbnails = $('polaroid-thumbnails');
+            const prevPolaroidBtn = $('prev-polaroid-btn');
+            const nextPolaroidBtn = $('next-polaroid-btn');
+            const openLightboxBtn = $('open-lightbox-btn');
+            const epicPicturesSection = $('epic-pictures-section');
+            const epicPicturesGrid = $('epic-pictures-grid');
+            const cutestPicturesGrid = $('cutest-pictures-grid');
+            const secretEpicToggleBtn = $('secret-epic-toggle-btn');
+            const secretEpicIcon = $('secret-epic-icon');
+            const secretEpicLabel = $('secret-epic-label');
+            const hideEpicVaultBtn = $('hide-epic-vault-btn');
+
+            const lightboxModal = $('lightbox-modal');
+            const lightboxCounter = $('lightbox-counter');
+            const lightboxImageBox = $('lightbox-image-box');
+            const lightboxCaption = $('lightbox-caption');
+            const lightboxNote = $('lightbox-note');
+            const lightboxCloseBtn = $('lightbox-close-btn');
+            const lightboxPrevBtn = $('lightbox-prev-btn');
+            const lightboxNextBtn = $('lightbox-next-btn');
+
+            function getGalleryList(galleryName) {
+                if (galleryName === 'epic') return EPIC_PHOTOS;
+                if (galleryName === 'cutest') return CUTEST_PHOTOS;
+                return POLAROID_ITEMS;
+            }
+
+            function formatCounter(idx, total) {
+                if (!total) return '00 / 00';
+                const current = String(idx + 1).padStart(2, '0');
+                const count = String(total).padStart(2, '0');
+                return `${current} / ${count}`;
+            }
+
+            function renderPolaroidGallery(animateSwap = true) {
+                const items = POLAROID_ITEMS;
+                if (!items.length) return;
+                const safeIdx = ((activeIndex % items.length) + items.length) % items.length;
+                if (activeGallery === 'polaroid') {
+                    activeIndex = safeIdx;
+                }
+                const currentItem = items[safeIdx];
+
+                if (polaroidImageBox) {
+                    polaroidImageBox.innerHTML = '';
+                    polaroidImageBox.appendChild(createPhotoElement(currentItem, currentItem.caption));
+                }
+                if (polaroidCaption) polaroidCaption.textContent = currentItem.caption || '';
+                if (polaroidNote) polaroidNote.textContent = currentItem.note || '';
+                if (polaroidBadge) polaroidBadge.textContent = currentItem.badge || 'Keepsake';
+                if (polaroidCounter) polaroidCounter.textContent = formatCounter(safeIdx, items.length);
+
+                if (animateSwap && polaroidStage) {
+                    polaroidStage.classList.remove('animate-polaroidSwap');
+                    void polaroidStage.offsetWidth;
+                    polaroidStage.classList.add('animate-polaroidSwap');
+                }
+
+                renderPolaroidThumbnails(safeIdx);
+            }
+
+            function renderPolaroidThumbnails(currentIdx) {
+                if (!polaroidThumbnails) return;
+                polaroidThumbnails.innerHTML = '';
+
+                POLAROID_ITEMS.forEach((item, idx) => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.setAttribute('aria-label', `Select snapshot ${idx + 1}: ${item.caption}`);
+                    const isSelected = activeGallery === 'polaroid' && idx === currentIdx;
+                    btn.className = isSelected
+                        ? 'flex-shrink-0 w-16 h-12 sm:w-20 sm:h-14 rounded-xl overflow-hidden ring-2 ring-terracotta-500 scale-105 shadow-sm transition cursor-pointer'
+                        : 'flex-shrink-0 w-16 h-12 sm:w-20 sm:h-14 rounded-xl overflow-hidden opacity-65 hover:opacity-100 border border-sage-600/20 transition cursor-pointer';
+
+                    btn.appendChild(createPhotoElement(item, item.caption));
+                    btn.addEventListener('click', () => {
+                        activeGallery = 'polaroid';
+                        activeIndex = idx;
+                        renderPolaroidGallery(true);
+                    });
+                    polaroidThumbnails.appendChild(btn);
+                });
+            }
+
+            function renderEpicPicturesSection() {
+                if (!epicPicturesGrid) return;
+                epicPicturesGrid.innerHTML = '';
+
+                const washiList = ['washi-sage', 'washi-terracotta', 'washi-sky', 'washi-gold'];
+                const floatClasses = ['animate-gentleFloat', 'animate-softSwirl', 'animate-softSwirl', 'animate-gentleFloat'];
+
+                const visibleEpics = EPIC_PHOTOS.slice(0, 5);
+                visibleEpics.forEach((epic, idx) => {
+                    const card = document.createElement('article');
+                    const washiClass = washiList[idx % washiList.length];
+                    const floatClass = floatClasses[idx % floatClasses.length];
+                    const tiltClass = epic.tiltClass || '-rotate-1 hover:rotate-0';
+                    const isFifthCenteredCard = idx === 4 && visibleEpics.length === 5;
+                    const centerFifthClass = isFifthCenteredCard
+                        ? 'sm:col-span-2 sm:max-w-[calc(50%-0.75rem)] sm:mx-auto sm:w-full'
+                        : '';
+
+                    card.className = `polaroid-card relative rounded-2xl p-3.5 sm:p-4 pb-5 border border-sage-600/15 ${tiltClass} ${centerFifthClass} hover:-translate-y-1.5 transition-all duration-300 cursor-pointer group animate-cardPopIn`;
+                    card.style.animationDelay = `${idx * 95}ms`;
+                    card.setAttribute('role', 'button');
+                    card.setAttribute('tabindex', '0');
+                    card.setAttribute('aria-label', `Open ${epic.caption} in full-screen lightbox`);
+
+                    const tape = document.createElement('span');
+                    tape.setAttribute('aria-hidden', 'true');
+                    tape.className = `washi-tape ${washiClass} w-16 h-4 rounded-sm -top-2 left-6`;
+                    card.appendChild(tape);
+
+                    const imgFrame = document.createElement('div');
+                    imgFrame.className = `relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-linen ${floatClass}`;
+                    imgFrame.appendChild(
+                        createPhotoElement(
+                            epic,
+                            epic.caption,
+                            'w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
+                        )
+                    );
+                    card.appendChild(imgFrame);
+
+                    const textBlock = document.createElement('div');
+                    textBlock.className = 'mt-3.5 w-full';
+
+                    const topBadgeRow = document.createElement('div');
+                    topBadgeRow.className = 'flex items-center justify-between gap-2 mb-1';
+                    const tagEl = document.createElement('span');
+                    tagEl.className = 'inline-block text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-sage-50 text-sage-700 border border-sage-600/20';
+                    tagEl.textContent = epic.tag || `Epic 0${idx + 1}`;
+                    topBadgeRow.appendChild(tagEl);
+
+                    const titleEl = document.createElement('p');
+                    titleEl.className = 'w-full font-hand text-2xl text-ink leading-tight';
+                    titleEl.textContent = epic.caption || `Epic ${idx + 1}`;
+
+                    const noteEl = document.createElement('p');
+                    noteEl.className = 'w-full text-xs sm:text-sm text-muted mt-0.5 leading-relaxed';
+                    noteEl.textContent = epic.note || '';
+
+                    textBlock.appendChild(topBadgeRow);
+                    textBlock.appendChild(titleEl);
+                    textBlock.appendChild(noteEl);
+                    card.appendChild(textBlock);
+
+                    const openThisEpic = () => openLightbox('epic', idx);
+                    card.addEventListener('click', openThisEpic);
+                    card.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            openThisEpic();
+                        }
+                    });
+
+                    epicPicturesGrid.appendChild(card);
+                });
+            }
+
+            function renderCutestPicturesSection() {
+                if (!cutestPicturesGrid) return;
+                cutestPicturesGrid.innerHTML = '';
+
+                const washiList = ['washi-terracotta', 'washi-gold', 'washi-sage'];
+                const motionClasses = ['animate-gentleFloat', 'animate-softSwirl', 'animate-gentleFloat'];
+
+                CUTEST_PHOTOS.slice(0, 3).forEach((cute, idx) => {
+                    const card = document.createElement('article');
+                    const washiClass = washiList[idx % washiList.length];
+                    const motionClass = motionClasses[idx % motionClasses.length];
+                    const tiltClass = cute.tiltClass || '-rotate-1 hover:rotate-0';
+
+                    card.className = `reveal-item polaroid-card relative rounded-2xl p-3.5 pb-5 border border-terracotta-500/15 ${tiltClass} hover:-translate-y-1.5 transition-all duration-300 cursor-pointer group`;
+                    card.style.transitionDelay = `${idx * 85}ms`;
+                    card.setAttribute('role', 'button');
+                    card.setAttribute('tabindex', '0');
+                    card.setAttribute('aria-label', `Open ${cute.caption} in full-screen lightbox`);
+
+                    const tape = document.createElement('span');
+                    tape.setAttribute('aria-hidden', 'true');
+                    tape.className = `washi-tape ${washiClass} w-16 h-4 rounded-sm -top-2 left-5`;
+                    card.appendChild(tape);
+
+                    const imgFrame = document.createElement('div');
+                    imgFrame.className = `relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-linen ${motionClass}`;
+                    imgFrame.appendChild(
+                        createPhotoElement(
+                            cute,
+                            cute.caption,
+                            'w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
+                        )
+                    );
+                    card.appendChild(imgFrame);
+
+                    const textBlock = document.createElement('div');
+                    textBlock.className = 'mt-3.5 w-full';
+
+                    const topBadgeRow = document.createElement('div');
+                    topBadgeRow.className = 'flex items-center justify-between gap-2 mb-1';
+                    const tagEl = document.createElement('span');
+                    tagEl.className = 'inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full bg-terracotta-50 text-terracotta-600 border border-terracotta-500/20';
+                    tagEl.textContent = cute.tag || `Cute 0${idx + 1}`;
+                    topBadgeRow.appendChild(tagEl);
+
+                    const titleEl = document.createElement('p');
+                    titleEl.className = 'w-full font-hand text-2xl text-ink leading-tight';
+                    titleEl.textContent = cute.caption || `Cute 0${idx + 1}`;
+
+                    const noteEl = document.createElement('p');
+                    noteEl.className = 'w-full text-xs text-muted mt-0.5 leading-relaxed';
+                    noteEl.textContent = cute.note || '';
+
+                    textBlock.appendChild(topBadgeRow);
+                    textBlock.appendChild(titleEl);
+                    textBlock.appendChild(noteEl);
+                    card.appendChild(textBlock);
+
+                    const openThisCute = () => openLightbox('cutest', idx);
+                    card.addEventListener('click', openThisCute);
+                    card.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            openThisCute();
+                        }
+                    });
+
+                    cutestPicturesGrid.appendChild(card);
+                });
+
+                observeRevealElements();
+            }
+
+            function syncEpicVaultState(shouldShowToast = false) {
+                if (epicPicturesSection) {
+                    if (isEpicVaultUnlocked) {
+                        epicPicturesSection.classList.remove('hidden');
+                        renderEpicPicturesSection();
+                    } else {
+                        epicPicturesSection.classList.add('hidden');
+                    }
+                }
+
+                if (secretEpicToggleBtn) {
+                    secretEpicToggleBtn.setAttribute('aria-expanded', String(isEpicVaultUnlocked));
+                }
+                if (secretEpicIcon) {
+                    secretEpicIcon.textContent = isEpicVaultUnlocked ? '🔓' : '🔒';
+                }
+                if (secretEpicLabel) {
+                    secretEpicLabel.textContent = isEpicVaultUnlocked ? 'Vault Open' : 'Secret Vault';
+                }
+
+                if (shouldShowToast) {
+                    if (isEpicVaultUnlocked) {
+                        showToast('Secret 5 Epic Pictures Unlocked! 🎉');
+                        if (epicPicturesSection) {
+                            window.setTimeout(() => {
+                                epicPicturesSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                            }, 80);
+                        }
+                    } else {
+                        showToast('Secret Vault Hidden');
+                    }
+                }
+            }
+
+            function toggleEpicVault() {
+                isEpicVaultUnlocked = !isEpicVaultUnlocked;
+                syncEpicVaultState(true);
+            }
+
+            if (secretEpicToggleBtn) {
+                secretEpicToggleBtn.addEventListener('click', toggleEpicVault);
+            }
+
+            if (hideEpicVaultBtn) {
+                hideEpicVaultBtn.addEventListener('click', () => {
+                    if (isEpicVaultUnlocked) {
+                        isEpicVaultUnlocked = false;
+                        syncEpicVaultState(true);
+                    }
+                });
+            }
+
+            function stepActiveGallery(delta) {
+                const list = getGalleryList(activeGallery);
+                if (!list.length) return;
+                activeIndex = ((activeIndex + delta) % list.length + list.length) % list.length;
+                if (activeGallery === 'polaroid') {
+                    renderPolaroidGallery(true);
+                }
+                if (lightboxModal && !lightboxModal.classList.contains('hidden')) {
+                    syncLightboxView();
+                }
+            }
+
+            if (prevPolaroidBtn) {
+                prevPolaroidBtn.addEventListener('click', () => {
+                    activeGallery = 'polaroid';
+                    stepActiveGallery(-1);
+                });
+            }
+
+            if (nextPolaroidBtn) {
+                nextPolaroidBtn.addEventListener('click', () => {
+                    activeGallery = 'polaroid';
+                    stepActiveGallery(1);
+                });
+            }
+
+            if (polaroidStage) {
+                polaroidStage.addEventListener(
+                    'touchstart',
+                    (e) => {
+                        if (e.changedTouches && e.changedTouches.length > 0) {
+                            touchStartX = e.changedTouches[0].clientX;
+                        }
+                    },
+                    { passive: true }
+                );
+
+                polaroidStage.addEventListener(
+                    'touchend',
+                    (e) => {
+                        if (!e.changedTouches || !e.changedTouches.length) return;
+                        const dx = e.changedTouches[0].clientX - touchStartX;
+                        if (Math.abs(dx) > 42) {
+                            activeGallery = 'polaroid';
+                            stepActiveGallery(dx < 0 ? 1 : -1);
+                        }
+                    },
+                    { passive: true }
+                );
+            }
+
+            // -----------------------------------------------------------------
+            // Full-Screen Lightbox Modal Controls
+            // -----------------------------------------------------------------
+            function syncLightboxView() {
+                const list = getGalleryList(activeGallery);
+                if (!list.length) return;
+                activeIndex = ((activeIndex % list.length) + list.length) % list.length;
+                const item = list[activeIndex];
+
+                if (lightboxImageBox) {
+                    lightboxImageBox.innerHTML = '';
+                    lightboxImageBox.appendChild(
+                        createPhotoElement(item, item.caption, 'max-w-full max-h-full w-auto h-auto object-contain rounded-xl')
+                    );
+                }
+                if (lightboxCaption) lightboxCaption.textContent = item.caption || '';
+                if (lightboxNote) lightboxNote.textContent = item.note || '';
+                if (lightboxCounter) lightboxCounter.textContent = formatCounter(activeIndex, list.length);
+            }
+
+            function openLightbox(galleryName = 'polaroid', index = 0) {
+                activeGallery = galleryName;
+                activeIndex = index;
+                syncLightboxView();
+                if (lightboxModal) {
+                    lightboxModal.classList.remove('hidden');
+                    lightboxModal.classList.add('flex');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeLightbox() {
+                if (lightboxModal) {
+                    lightboxModal.classList.add('hidden');
+                    lightboxModal.classList.remove('flex');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if (openLightboxBtn) {
+                openLightboxBtn.addEventListener('click', () => {
+                    const idx = activeGallery === 'polaroid' ? activeIndex : 0;
+                    openLightbox('polaroid', idx);
+                });
+            }
+
+            if (polaroidImageWrap) {
+                polaroidImageWrap.addEventListener('click', () => openLightbox('polaroid', activeIndex));
+                polaroidImageWrap.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openLightbox('polaroid', activeIndex);
+                    }
+                });
+            }
+
+            if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+            if (lightboxPrevBtn) lightboxPrevBtn.addEventListener('click', () => stepActiveGallery(-1));
+            if (lightboxNextBtn) lightboxNextBtn.addEventListener('click', () => stepActiveGallery(1));
+
+            if (lightboxModal) {
+                lightboxModal.addEventListener('click', (e) => {
+                    if (e.target === lightboxModal) closeLightbox();
+                });
+            }
+
+            document.addEventListener('keydown', (e) => {
+                if (lightboxModal && !lightboxModal.classList.contains('hidden')) {
+                    if (e.key === 'Escape') {
+                        closeLightbox();
+                    } else if (e.key === 'ArrowLeft') {
+                        stepActiveGallery(-1);
+                    } else if (e.key === 'ArrowRight') {
+                        stepActiveGallery(1);
+                    }
+                    return;
+                }
+
+                if (celebrationPage && !celebrationPage.classList.contains('hidden')) {
+                    const tag = document.activeElement ? document.activeElement.tagName : '';
+                    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+                    if (e.key === 'ArrowLeft') {
+                        activeGallery = 'polaroid';
+                        stepActiveGallery(-1);
+                    } else if (e.key === 'ArrowRight') {
+                        activeGallery = 'polaroid';
+                        stepActiveGallery(1);
+                    }
+                }
+            });
+
+            // -----------------------------------------------------------------
+            // Passcode-Locked Birthday Message (Passcode: 112331, No Hint on UI)
+            // -----------------------------------------------------------------
+            const MESSAGE_PASSCODE = '112331';
+            const messageLockGate = $('message-lock-gate');
+            const unlockedMessageContent = $('unlocked-message-content');
+            const messagePasscodeForm = $('message-passcode-form');
+            const messagePasscodeInput = $('message-passcode-input');
+            const messagePasscodeFeedback = $('message-passcode-feedback');
+            const unlockMessageBtn = $('unlock-message-btn');
+            const lockMessageBtn = $('lock-message-btn');
+            const messageLockEmblem = $('message-lock-emblem');
+            let isMessageUnlocked = false;
+
+            function syncMessageLockState(shouldShowToast = false) {
+                if (messageLockGate) {
+                    messageLockGate.classList.toggle('hidden', isMessageUnlocked);
+                }
+                if (unlockedMessageContent) {
+                    unlockedMessageContent.classList.toggle('hidden', !isMessageUnlocked);
+                }
+                if (unlockMessageBtn) {
+                    unlockMessageBtn.setAttribute('aria-expanded', String(isMessageUnlocked));
+                }
+
+                if (isMessageUnlocked) {
+                    if (messagePasscodeFeedback) {
+                        messagePasscodeFeedback.textContent = '';
+                        messagePasscodeFeedback.className = 'min-h-[1.25rem] text-xs font-medium text-sage-700';
+                    }
+                    observeRevealElements();
+                    if (unlockedMessageContent) {
+                        unlockedMessageContent.querySelectorAll('.reveal-item').forEach((el, idx) => {
+                            window.setTimeout(() => {
+                                el.classList.add('is-visible');
+                            }, idx * 55);
+                        });
+                    }
+                    if (shouldShowToast) {
+                        showToast('Letter unlocked for Ms. Joan! 💌');
+                    }
+                } else {
+                    if (messagePasscodeInput) {
+                        messagePasscodeInput.value = '';
+                    }
+                    if (messagePasscodeFeedback) {
+                        messagePasscodeFeedback.textContent = '';
+                        messagePasscodeFeedback.className = 'min-h-[1.25rem] text-xs font-medium text-terracotta-600';
+                    }
+                    if (shouldShowToast) {
+                        if (messageLockEmblem) {
+                            messageLockEmblem.classList.remove('animate-cardPopIn');
+                            void messageLockEmblem.offsetWidth;
+                            messageLockEmblem.classList.add('animate-cardPopIn');
+                        }
+                        showToast('Letter locked again 🔒');
+                    }
+                }
+            }
+
+            function handlePasscodeSubmit(e) {
+                if (e) e.preventDefault();
+                const entered = messagePasscodeInput ? messagePasscodeInput.value.trim() : '';
+
+                if (entered === MESSAGE_PASSCODE) {
+                    isMessageUnlocked = true;
+                    syncMessageLockState(true);
+                } else {
+                    isMessageUnlocked = false;
+                    if (messagePasscodeFeedback) {
+                        messagePasscodeFeedback.textContent = 'Not quite that passcode, Ms. Joan—give it another try.';
+                        messagePasscodeFeedback.className = 'min-h-[1.25rem] text-xs font-semibold text-terracotta-600';
+                    }
+                    if (messageLockGate) {
+                        messageLockGate.classList.remove('animate-shakeLock');
+                        void messageLockGate.offsetWidth;
+                        messageLockGate.classList.add('animate-shakeLock');
+                    }
+                    if (messagePasscodeInput) {
+                        messagePasscodeInput.focus();
+                        messagePasscodeInput.select();
+                    }
+                    showToast('Incorrect passcode—try again');
+                }
+            }
+
+            if (messagePasscodeForm) {
+                messagePasscodeForm.addEventListener('submit', handlePasscodeSubmit);
+            }
+
+            if (messagePasscodeInput) {
+                messagePasscodeInput.addEventListener('input', () => {
+                    const cleaned = messagePasscodeInput.value.replace(/\D/g, '').slice(0, 6);
+                    if (messagePasscodeInput.value !== cleaned) {
+                        messagePasscodeInput.value = cleaned;
+                    }
+                    if (cleaned === MESSAGE_PASSCODE) {
+                        isMessageUnlocked = true;
+                        syncMessageLockState(true);
+                    }
+                });
+            }
+
+            if (lockMessageBtn) {
+                lockMessageBtn.addEventListener('click', () => {
+                    isMessageUnlocked = false;
+                    syncMessageLockState(true);
+                });
+            }
+
+            syncMessageLockState(false);
+
+            // Initial Render
+            renderPolaroidGallery(false);
+            renderCutestPicturesSection();
+            syncEpicVaultState(false);
+            observeRevealElements();
+        })();
+    </script>
+</body>
+</html>
